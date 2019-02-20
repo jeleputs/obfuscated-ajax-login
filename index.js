@@ -1,9 +1,9 @@
 function pasuser(form) {
   const str = salt(form.pass.value);
   const tp = str.ts;
-  const pw = sha512(str.ss);
+  const pw = sha3_512(str.ss);
   const encUsr = salt(form.id.value);
-  const hs = sha512(pw + encUsr.ss);
+  const hs = sha3_512(pw + encUsr.ss);
   post('http://example.com/path/to/model', {
     tp,
     pw,
